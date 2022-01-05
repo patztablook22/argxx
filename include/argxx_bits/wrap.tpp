@@ -1,9 +1,4 @@
 #include "argxx_bits/wrap.h"
-#include <iostream>
-
-using namespace std;
-
-int counter = 0;
 
 namespace argxx {
 
@@ -26,7 +21,6 @@ Wrap<T>::~Wrap() {
 
 template <class T>
 Wrap<T>::Wrap(const Wrap<T>& other) {
-  // cout << "copy " << counter++ << endl;
   this->ptr_  = other.ptr_;
   this->free_ = other.free_;
   other.free_ = false;
