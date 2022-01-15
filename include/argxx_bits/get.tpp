@@ -18,4 +18,14 @@ constexpr Type& get(Args& args) {
   return reinterpret_cast<Type&>(**result);
 }
 
+template <class Type, class Args>
+constexpr Type& getOrDefault(Args& args) {
+  try {
+    return get<Type>(args);
+  }  catch (std::invalid_argument& e) {
+    args.push_back(new Type());
+    return *reinterpret_cast<Type*>(&*args.back());
+  }
+}
+
 }

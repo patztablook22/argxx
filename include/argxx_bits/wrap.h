@@ -10,10 +10,13 @@ class Wrap {
     Wrap(const T& arg); // copy and delete copy upon destruction
     Wrap(T* arg);       // refer and don't delete
     Wrap(const Wrap<T>& other);
+    Wrap();
     ~Wrap();
 
     inline T& operator*() const;
     inline T* operator->() const;
+
+    const Wrap<T>& operator=(const Wrap<T>& other);
   
   private:
     T* ptr_;
